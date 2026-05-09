@@ -11,6 +11,7 @@ start_logging() {
     echo -e "${CYAN}      Simple Activity Logger       ${RESET}"
     echo -e "${CYAN}===================================${RESET}"
     echo -e " (종료 명령: ${YELLOW}q${RESET} 또는 ${YELLOW}exit${RESET})\n"
+    echo -e " (로그보는 명령: ${YELLOW}v${RESET} 또는 ${YELLOW}view${RESET})\n"
 
     while true; do
         echo -ne "${GREEN}Log > ${RESET}"
@@ -21,13 +22,18 @@ start_logging() {
                 echo -e "\n${YELLOW}프로그램을 종료합니다.${RESET}"
                 break
                 ;;
+            v|view)
+                cat ~/.activity.log
+                read -p "엔터를 눌러 다시 로그 만들기"
+                clear
+                ;;
             "")
                 continue
                 ;;
             *)
                 echo "$(date "+%Y-%m-%d %H:%M:%S") - $input" >> ~/.activity.log
 
-                echo -e "${CYAN}[SAVED]${RESET} $(tail -n 1 ~/.activity.log)"
+                echo -e "${CYAN}[저장됨]${RESET} $(tail -n 1 ~/.activity.log)"
                 echo "-----------------------------------"
                 ;;
         esac
@@ -41,7 +47,7 @@ else
     sleep 1
     clear
     echo -e "${YELLOW}------------------------------------------------------------${RESET}"
-    echo " 기록된 로그는 직접 삭제해야 하며, 시스템 활동이 기록될 수 있습니다."
+    echo " 기록된 로그는 직접 삭제해야 합니다. 이 프로그램의 일부는 ai를 사용하였습니다."
     echo -e "${YELLOW}------------------------------------------------------------${RESET}"
     sleep 1
 

@@ -11,6 +11,7 @@ start_logging() {
     echo -e "${CYAN}   Termux Logger (EN)   ${RESET}"
     echo -e "${CYAN}========================${RESET}"
     echo -e " Exit: ${YELLOW}q${RESET} or ${YELLOW}exit${RESET}\n"
+    echo -e " view logs: ${YELLOW}v${RESET} or ${YELLOW}view${RESET}\n"
 
     while true; do
         echo -ne "${GREEN}Log > ${RESET}"
@@ -20,6 +21,11 @@ start_logging() {
             q|exit)
                 echo -e "\n${YELLOW}Goodbye!${RESET}"
                 break
+                ;;
+            v|view)
+                cat ~/.activity.log
+                read -p "press enter and go to log add mod agin."
+                clear
                 ;;
             "")
                 continue

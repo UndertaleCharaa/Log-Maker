@@ -11,6 +11,7 @@ start_logging() {
     echo -e "${CYAN}     Termux 기록기      ${RESET}"
     echo -e "${CYAN}========================${RESET}"
     echo -e " 종료: ${YELLOW}q${RESET} 또는 ${YELLOW}exit${RESET}\n"
+    echo -e " 로그보는 명령: ${YELLOW}v${RESET} 또는 ${YELLOW}view${RESET}\n"
 
     while true; do
         echo -ne "${GREEN}입력 > ${RESET}"
@@ -21,12 +22,17 @@ start_logging() {
                 echo -e "\n${YELLOW}프로그램을 종료합니다.${RESET}"
                 break
                 ;;
+            v|view)
+                cat ~/.activity.log
+                read -p "엔터를 눌러 다시 로그 만들기"
+                clear
+                ;;
             "")
                 continue
                 ;;
             *)
                 echo "$(date "+%Y-%m-%d %H:%M:%S") - $input" >> ~/.activity.log
-                echo -e "${CYAN}[완료]${RESET} $(tail -n 1 ~/.activity.log)"
+                echo -e "${CYAN}[저장됨]${RESET} $(tail -n 1 ~/.activity.log)"
                 echo "------------------------"
                 ;;
         esac
