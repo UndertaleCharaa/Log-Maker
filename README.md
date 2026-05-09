@@ -11,7 +11,9 @@ Bash 쉘 환경에서 가볍게 동작하는 개인 활동 기록 프로그램�
 ## 🛠 실행 방법
 ```bash
 # 1. 파일 실행 권한 부여 (예: 한국어 버전)
-chmod +x log-kr.sh or chmod +x log-en.sh
+chmod +x log-kr.sh
 
 # 2. 프로그램 실행
-./log-kr.sh or ./log-en.sh
+./log-kr.sh
+
+다른 버전은 log-kr를 원하는 버전으로 수정만 하면 됩니다!
